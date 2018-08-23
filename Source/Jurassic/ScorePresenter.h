@@ -24,13 +24,17 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Widgets")
-		TSubclassOf<class UUserWidget> ScoreTextWidget;
+	TSubclassOf<class UUserWidget> ScoreTextWidget;
 
 	TWeakObjectPtr<class UUserWidget> pScoreTextWidget;
 
 	TWeakObjectPtr<class UTextBlock> pScoreText;
+	TWeakObjectPtr<class UTextBlock> pAppleText;
 
 	UFUNCTION(BlueprintCallable, Category = "Score")
-		void SetScore(int Score);
+	void SetScore(int Score);
+
+	UFUNCTION(BlueprintCallable, Category = "Apples")
+	void SetApples(int Apples);
 };
 

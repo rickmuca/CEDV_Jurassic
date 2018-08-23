@@ -50,6 +50,9 @@ private:
 	// Save game on game over
 	void SaveGame();
 
+	// Present un UX fruits collected
+	void ShowFruitsCollected();
+
 	// Evaluate whether gain bonus or not
 	void EvaluateScoreAccordingKilledEnemies(int32 ScoreToAdd);
 };

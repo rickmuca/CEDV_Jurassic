@@ -22,8 +22,12 @@ void AScorePresenter::BeginPlay()
 
 		if (pScoreTextWidget.IsValid()) {
 			pScoreTextWidget->AddToViewport();
+			
 			pScoreText = (UTextBlock*)pScoreTextWidget->GetWidgetFromName("TextScoreWidget");
 			SetScore(0);
+
+			pAppleText = (UTextBlock*)pScoreTextWidget->GetWidgetFromName("TextAppleWidget");
+			SetApples(0);
 		}
 	}
 }
@@ -37,5 +41,11 @@ void AScorePresenter::Tick(float DeltaTime)
 void AScorePresenter::SetScore(int Score) {
 	if (pScoreText.IsValid()) {
 		pScoreText->SetText(FText::FromString(FString::FromInt(Score)));
+	}
+}
+
+void AScorePresenter::SetApples(int Apples) {
+	if (pAppleText.IsValid()) {
+		pAppleText->SetText(FText::FromString("x " + FString::FromInt(Apples)));
 	}
 }

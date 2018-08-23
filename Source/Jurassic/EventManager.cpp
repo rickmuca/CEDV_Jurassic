@@ -64,6 +64,7 @@ void AEventManager::OnNotify(UObject* Entity, UGameEvent* Event)
 
 	case UGameEvent::GOT_FRUIT_EVENT:
 		this->FruitsCollected++;
+		this->ShowFruitsCollected();
 		break;
 
 	case UGameEvent::PLAYER_KILLED_EVENT:
@@ -82,6 +83,12 @@ void AEventManager::SaveGame()
 
 	// Player name will be the current date in this version
 	UMySaveGame::SaveMaxScore(currentDateTime.ToString(), this->Score);
+}
+
+void AEventManager::ShowFruitsCollected() {
+	if (ScorePresenter != NULL) {
+		ScorePresenter->SetApples(this->FruitsCollected);
+	}
 }
 
 void AEventManager::EvaluateScoreAccordingKilledEnemies(int32 ScoreToAdd) {
