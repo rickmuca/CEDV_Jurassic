@@ -14,7 +14,8 @@ UCLASS(Abstract, BlueprintType)
 class JURASSIC_API UGameEvent : public UObject
 {
 	GENERATED_BODY()
-	
+
+public:
 	UGameEvent();
 	~UGameEvent();
 
@@ -22,6 +23,6 @@ class JURASSIC_API UGameEvent : public UObject
 
 	static const int KILL_EVENT = 0;
 	static const int PLAYER_KILLED_EVENT = 1;
-	static const int METEORITE_DESTROYED = 2;
-	
+	static const int GOT_KEY_EVENT = 2;
+	static const int GOT_FRUIT_EVENT = 3;
 };
